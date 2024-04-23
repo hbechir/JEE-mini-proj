@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GamesApplication<games>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.bechir.games.GamesApplication",
+            "projectName": "games",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
