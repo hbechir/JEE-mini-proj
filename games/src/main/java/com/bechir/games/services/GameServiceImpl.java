@@ -1,13 +1,13 @@
 package com.bechir.games.services;
 
+import com.bechir.games.entities.Categorie;
 import com.bechir.games.entities.Game;
 import com.bechir.games.repos.GameRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Page;
-
 
 @Service
 public class GameServiceImpl implements GameService {
@@ -48,5 +48,40 @@ public class GameServiceImpl implements GameService {
   @Override
   public List<Game> getAllgames() {
     return GameRepository.findAll();
+  }
+
+  @Override
+  public List<Game> findByGameName(String nom) {
+    return GameRepository.findByGameName(nom);
+  }
+
+  @Override
+  public List<Game> findByGameNameContains(String nom) {
+    return GameRepository.findByGameNameContains(nom);
+  }
+
+  @Override
+  public List<Game> findByNomPrix(String nom, Double prix) {
+    return GameRepository.findByNomPrix(nom, prix);
+  }
+
+  @Override
+  public List<Game> findByCategorie(Categorie categorie) {
+    return GameRepository.findByCategorie(categorie);
+  }
+
+  @Override
+  public List<Game> findByCategorieIdCat(Long id) {
+    return GameRepository.findByCategorieIdCat(id);
+  }
+
+  @Override
+  public List<Game> findByOrderByGameNameAsc() {
+    return GameRepository.findByOrderByGameNameAsc();
+  }
+
+  @Override
+  public List<Game> trierGamesNamesPrix() {
+    return GameRepository.trierGamesNamesPrix();
   }
 }

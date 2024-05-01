@@ -19,7 +19,7 @@ public class GameController {
   GameService GameService;
 
   @RequestMapping("/ListeGames")
-  public String listeProduits(
+  public String listeGames(
     ModelMap modelMap,
     @RequestParam(name = "page", defaultValue = "0") int page,
     @RequestParam(name = "size", defaultValue = "5") int size
