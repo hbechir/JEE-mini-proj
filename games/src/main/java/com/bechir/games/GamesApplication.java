@@ -22,7 +22,7 @@ public class GamesApplication  implements CommandLineRunner{
   @Autowired
   private RepositoryRestConfiguration repositoryRestConfiguration;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) { 
     SpringApplication.run(GamesApplication.class, args);
   }
 

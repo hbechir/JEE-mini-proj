@@ -2,6 +2,7 @@ package com.bechir.games.services;
 
 import com.bechir.games.entities.Categorie;
 import com.bechir.games.entities.Game;
+import com.bechir.games.repos.CategorieRepository;
 import com.bechir.games.repos.GameRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,5 +84,13 @@ public class GameServiceImpl implements GameService {
   @Override
   public List<Game> trierGamesNamesPrix() {
     return GameRepository.trierGamesNamesPrix();
+  }
+
+  @Autowired
+  CategorieRepository categorieRepository;
+
+  @Override
+  public List<Categorie> getAllCategories() {
+    return categorieRepository.findAll();
   }
 }

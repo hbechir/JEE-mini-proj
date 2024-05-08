@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec=https://www.thymeleaf.org/thymeleaf-extras-springsecurity6>
   <link
     rel="stylesheet"
     type="text/css"
@@ -7,14 +8,14 @@
   />
   <head>
     <meta charset="utf-8" />
-    <title>Liste des Produits</title>
+    <title>Games List</title>
   </head>
   <body>
     <div th:replace="template"></div>
-    
+
     <div class="container mt-5">
       <div class="card">
-        <div class="card-header">Liste des Produits</div>
+        <div class="card-header">Games List</div>
         <div class="card-body">
           <table class="table table-striped">
             <tr>
@@ -26,14 +27,24 @@
               <td th:text="${p.GameId}"></td>
               <td th:text="${p.GameName}"></td>
               <td th:text="${p.GamePrice}"></td>
-              <td>
+              
+              <td th:if= "${p.categorie != null}" th:text="${p.categorie.nomCat}"></td>
+              <td th:if="${p.categorie == null}" th:text="${'Pas de Catégorie'}"></td>
+              <td sec:authorize="hasAuthority('ADMIN')">
                 <a
-                  onclick="return confirm('Etes-vous sûr ?')"
                   class="btn btn-danger"
                   th:href="@{supprimerGame(id=${p.GameId},page=${currentPage},size=${size})}"
                   >Supprimer</a
                 >
               </td>
+
+              <td sec:authorize="hasAuthority('ADMIN')"
+              ><a 
+                
+                class="btn btn-success"
+                th:href="@{modifierGame(id=${p.gameId},page=${currentPage},size=${size})}"
+                >Editer</a></td>
+                
             </tr>
           </table>
           <ul class="nav nav-pills">

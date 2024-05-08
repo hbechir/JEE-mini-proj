@@ -2,7 +2,6 @@ package com.bechir.games.restcontrollers;
 
 import com.bechir.games.entities.Game;
 import com.bechir.games.services.GameService;
-import com.bechir.games.services.GameService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,32 +20,32 @@ public class GameRestController {
   GameService produitService;
 
   @RequestMapping(method = RequestMethod.GET)
-  public List<Game> getAllProduits() {
+  public List<Game> getAllGames() {
     return produitService.getAllgames();
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public Game getProduitById(@PathVariable("id") Long id) {
+  public Game getGameById(@PathVariable("id") Long id) {
     return produitService.getgame(id);
   }
 
   @RequestMapping(method = RequestMethod.POST)
-  public Game createProduit(@RequestBody Game produit) {
+  public Game createGame(@RequestBody Game produit) {
     return produitService.savegame(produit);
   }
 
   @RequestMapping(method = RequestMethod.PUT)
-  public Game updateProduit(@RequestBody Game produit) {
+  public Game updateGame(@RequestBody Game produit) {
     return produitService.updategame(produit);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-  public void deleteProduit(@PathVariable("id") Long id) {
+  public void deleteGame(@PathVariable("id") Long id) {
     produitService.deletegameById(id);
   }
 
   @RequestMapping(value = "/prodscat/{idCat}", method = RequestMethod.GET)
-  public List<Game> getProduitsByCatId(@PathVariable("idCat") Long idCat) {
+  public List<Game> getGamesByCatId(@PathVariable("idCat") Long idCat) {
     return produitService.findByCategorieIdCat(idCat);
   }
 }

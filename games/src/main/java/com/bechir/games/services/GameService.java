@@ -21,4 +21,6 @@ public interface GameService {
   List<Game> findByCategorieIdCat(Long id);
   List<Game> findByOrderByGameNameAsc();
   List<Game> trierGamesNamesPrix();
+  List<Categorie> getAllCategories();
+
 }
